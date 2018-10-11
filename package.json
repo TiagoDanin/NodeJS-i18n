@@ -1,0 +1,32 @@
+{
+  "name": "nodejs-i18n",
+  "version": "1.0.0",
+  "description": "Minimalistic internationalization using gettext style for NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit --timeout 10000"
+  },
+  "bin": {
+    "nodejs-i18n": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TiagoDanin/NodeJS-i18n.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "TiagoDanin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TiagoDanin/NodeJS-i18n/issues"
+  },
+  "homepage": "https://github.com/TiagoDanin/NodeJS-i18n#readme",
+  "dependencies": {
+    "gettext-parser": "^2.0.0",
+    "tempy": "^0.2.1"
+  },
+  "devDependencies": {
+    "mocha": "5.2.0"
+  }
+}
