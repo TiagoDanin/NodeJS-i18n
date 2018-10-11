@@ -1,22 +1,23 @@
 const gettextParser = require("gettext-parser")
 const fs = require('fs')
+const path = require('path')
 
-var defaultLang, translations, prefix, sufix, regex
+var defaultLang, translations, prefix, suffix, regex
 
 class Resources {
 	constructor (options) {
 		this.options = {
 			lang: 'en',
 			translations: {},
-			prefix: '$${',
-			sufix: '}$$',
-			regex: /\$\${(\d*)}\$\$/g,
+			prefix: '{{',
+			suffix: '}}',
+			regex: /{{(\d*)}}/g,
 			...options
 		}
 		defaultLang = this.options.lang
 		translations = this.options.translations
 		prefix = this.options.prefix
-		sufix = this.options.sufix
+		suffix = this.options.suffix
 		regex = this.options.regex
 
 		translations[defaultLang] = {
@@ -27,7 +28,7 @@ class Resources {
 	}
 
 	load (lang, resourceFile) {
-		var fileRaw = fs.readFileSync(`${resourceFile}`)
+		var fileRaw = fs.readFileSync(path.resolve(resourceFile))
 		var po = gettextParser.po.parse(fileRaw)
 		translations[lang] = po.translations['']
 		translations[lang][''][''] = {
@@ -65,7 +66,7 @@ class Translation {
 		var n = 0
 		if (str.reduce && exp) {
 			return str.reduce((total, current, index) => {
-				var select = `${prefix}${n}${sufix}`
+				var select = `${prefix}${n}${suffix}`
 				n++
 				if (exp[index] === undefined) {
 					select = ''
