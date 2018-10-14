@@ -23,7 +23,7 @@ rl.on('line', (line) => {
 	var fileOutput = ''
 	for (rawLine of raw.split('\n')) {
 		var n = 0
-		fileOutput += rawLine.toString().replace(/\${([\d\s\w_-]*)}/g, (match, key) => {
+		fileOutput += rawLine.toString().replace(/\${([\.\[\]\d\s\w_-]*)}/g, (match, key) => {
 			var output = `{{${n}}}`
 			n++
 			return output

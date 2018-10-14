@@ -55,11 +55,15 @@ class Translation {
 
 	getTranslation (msgid) {
 		msgid = msgid.toString()
-		return translations[this.lang][msgid] || {
+		var translation = translations[this.lang][msgid] || {
 			msgid: msgid,
 			comments: {},
 			msgstr: [msgid]
 		}
+		if (translation.msgstr.toString() == '') {
+			translation.msgstr = [msgid]
+		}
+		return translation
 	}
 
 	getMsgid (str, exp) {

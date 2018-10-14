@@ -1,6 +1,6 @@
 {
   "name": "nodejs-i18n",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimalistic internationalization using gettext style for NodeJS",
   "main": "index.js",
   "scripts": {
