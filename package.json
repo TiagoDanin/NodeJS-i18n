@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/TiagoDanin/NodeJS-i18n#readme",
   "dependencies": {
-    "gettext-parser": "^2.0.0",
+    "gettext-parser": "^3.0.0",
     "tempy": "^0.2.1"
   },
   "devDependencies": {
