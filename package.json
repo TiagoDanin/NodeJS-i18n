@@ -45,5 +45,16 @@
   },
   "devDependencies": {
     "mocha": "5.2.0"
-  }
+  },
+  "features": [
+    "Gettext Style",
+    "Easy Imprementation",
+    "Create .po via CLI",
+    "Select Lang per User"
+  ],
+  "preferGlobal": true,
+  "related": [
+    "gettext-parser"
+  ],
+  "documentation": "./docs.md"
 }
