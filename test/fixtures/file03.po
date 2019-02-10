@@ -3,35 +3,35 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: UTF-8\n"
 
-#: test/fixtures/file02.js:1:1
+#: test/fixtures/file03.js:1:0
 msgid "Test1"
 msgstr ""
 
-#: test/fixtures/file02.js:2:1
+#: test/fixtures/file03.js:2:0
 msgid "Test2 ${0} s"
 msgstr ""
 
-#: test/fixtures/file02.js:3:1
+#: test/fixtures/file03.js:3:0
 msgid "Test3 ${0} ${1}"
 msgstr ""
 
-#: test/fixtures/file02.js:4:4
+#: test/fixtures/file03.js:4:0
 msgid "Test4 ${0} ${1} ${2}"
 msgstr ""
 
-#: test/fixtures/file02.js:5:1
+#: test/fixtures/file03.js:5:0
 msgid "Test5 ${0} ${1}"
 msgstr ""
 
-#: test/fixtures/file02.js:6:1
+#: test/fixtures/file03.js:6:0
 msgid "Test6"
 msgstr ""
 
-#: test/fixtures/file02.js:7:1
+#: test/fixtures/file03.js:7:0
 msgid "Test 7"
 msgstr ""
 
-#: test/fixtures/file02.js:9:1
+#: test/fixtures/file03.js:9:0
 #. 123
 msgid "Test 8"
 msgstr ""

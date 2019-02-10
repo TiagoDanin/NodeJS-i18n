@@ -9,9 +9,19 @@ var r
 
 describe('Cli Test', () => {
 	it('Create file01.po', async () => {"POT-Creation-Date: 2018-10-11 14:01-0300\n"
-		var { stdout } = await exec('find . | grep test/fixtures/file01.js | sort | node cli.js')
+		var { stdout } = await exec('find . | grep test/fixtures/file01.js | node cli.js')
 		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')
 		assert.equal(removeDate(stdout), removeDate(fs.readFileSync('test/fixtures/file01.po').toString()))
+	})
+	it('Create file02.po', async () => {"POT-Creation-Date: 2018-10-11 14:01-0300\n"
+		var { stdout } = await exec('find . | grep test/fixtures/file02.js | node cli.js')
+		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')
+		assert.equal(removeDate(stdout), removeDate(fs.readFileSync('test/fixtures/file02.po').toString()))
+	})
+	it('All strings', async () => {"POT-Creation-Date: 2018-10-11 14:01-0300\n"
+		var { stdout } = await exec('find . | grep test/fixtures/file03.js | node cli.js --all')
+		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')
+		assert.equal(removeDate(stdout), removeDate(fs.readFileSync('test/fixtures/file03.po').toString()))
 	})
 })
 
@@ -20,7 +30,7 @@ describe('Resources Test', () => {
 		r = new Resources()
 	})
 	it('Load resource (pt.po)', async () => {
-		r.load('pt', 'test/fixtures/file02.po')
+		r.load('pt', 'test/fixtures/file00.po')
 	})
 })
 
