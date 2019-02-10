@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-argv@^0.0.2:
+argv@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/argv/-/argv-0.0.2.tgz#ecbd16f8949b157183711b1bda334f37840185ab"
   integrity sha1-7L0W+JSbFXGDcRsb2jNPN4QBhas=
@@ -74,10 +74,10 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
-gettext-parser@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-3.0.0.tgz#a9aca9d8c882eb67e8b57bc18a6497981b343fbd"
-  integrity sha512-7yHRx56/yDwB9SKxiLesMWqd1il+/QBf2MpD8FubYzyhTKCkWXQdzptHAbYF5fSo6eIgKzggOicd2i6roNrwOA==
+gettext-parser@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-3.1.0.tgz#a92f4aa09cdaa944ce71832677749d84ac683649"
+  integrity sha512-eVD8RxFMeHg8pjl5zsk7xlEDaKdcYlotLztiMaYGLvI13LMXwWlybLg7rg6eagct79vyGkPGZrMPBsdjsQOnWg==
   dependencies:
     encoding "^0.1.12"
     readable-stream "^3.0.6"
