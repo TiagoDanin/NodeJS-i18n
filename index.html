@@ -81,16 +81,30 @@ baseURL: https://tiagodanin.github.io
 
 
 <div class="uk-container">
-	<h1 id="nodejs-i18n-build-status"><a href="#nodejs-i18n-build-status">NodeJS i18n <a href="https://travis-ci.org/TiagoDanin/NodeJS-i18n"><img src="https://travis-ci.org/TiagoDanin/NodeJS-i18n.svg?branch=master" alt="Build Status"></a></a></h1>
-<p>Minimalistic internationalization using gettext style for NodeJS.</p>
+	<h1 id="nodejs-i18n"><a href="#nodejs-i18n">NodeJS i18n</a></h1>
+<p><a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square" alt="Version"></a>
+<a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square" alt="Downloads"></a>
+<a href="https://travis-ci.org/TiagoDanin/NodeJS-i18n"><img src="https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&#x26;style=flat-square" alt="Travis"></a></p>
+<p>Minimalistic internationalization using gettext style for NodeJS</p>
 <h2 id="features"><a href="#features">Features</a></h2>
 <ul>
-<li>Gettext style</li>
-<li>Easy of use</li>
+<li>Gettext Style</li>
+<li>Easy Imprementation</li>
 <li>Create .po via CLI</li>
-<li>Select lang per user</li>
+<li>Select Lang per User</li>
 </ul>
-<h2 id="how-to-use"><a href="#how-to-use">How to Use</a></h2>
+<h2 id="installation"><a href="#installation">Installation</a></h2>
+<p>Module available through the
+<a href="https://www.npmjs.com/">npm registry</a>. It can be installed using the
+<a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm</code></a>
+or
+<a href="https://yarnpkg.com/en/"><code>yarn</code></a>
+command line tools.</p>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># NPM</span>
+npm install nodejs-i18n --global
+<span class="hljs-comment"># Or Using Yarn</span>
+yarn global add nodejs-i18n</code></pre>
+<h2 id="documentation"><a href="#documentation">Documentation</a></h2>
 <h3 id="example"><a href="#example">Example</a></h3>
 <pre><code class="hljs language-javascript"><span class="hljs-keyword">const</span> { Resources, Translation } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'nodejs-i18n'</span>)
 
@@ -98,6 +112,7 @@ baseURL: https://tiagodanin.github.io
 r.load(<span class="hljs-string">'pt'</span>, <span class="hljs-string">'pt.po'</span>)
 
 <span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> Translation(<span class="hljs-string">'pt'</span>)
+<span class="hljs-comment">//i18n: My Hello World with NodeJs i18n</span>
 <span class="hljs-keyword">var</span> world = user._<span class="hljs-string">`world`</span> <span class="hljs-comment">// Mundo</span>
 user._<span class="hljs-string">`Hello <span class="hljs-subst">${world}</span>`</span> <span class="hljs-comment">// Olá mundo</span></code></pre>
 <h4 id="options--resources"><a href="#options--resources">Options :: Resources({})</a></h4>
@@ -152,21 +167,21 @@ Default value: <code>en</code></p>
 <li><strong>String</strong> - String</li>
 </ul>
 <h3 id="cli"><a href="#cli">CLI</a></h3>
-<p>Create .po file with <code>nodejs-i18n</code>. Example: add in package.json</p>
+<p>Create .po files with <code>nodejs-i18n</code>. Add in your package.json</p>
 <pre><code class="hljs language-json"><span class="hljs-string">"scripts"</span>: {
     <span class="hljs-attr">"i18n"</span>: <span class="hljs-string">"find . | grep .js | sort | nodejs-i18n > en.po"</span>
 }</code></pre>
 <p>and run <code>$ npm run i18n</code></p>
-<h2 id="installation"><a href="#installation">Installation</a></h2>
-<p>This is a <a href="https://nodejs.org/">Node.js</a> module available through the
-<a href="https://www.npmjs.com/">npm registry</a>. It can be installed using the
-<a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm</code></a>
-or
-<a href="https://yarnpkg.com/en/"><code>yarn</code></a>
-command line tools.</p>
-<pre><code class="hljs language-sh">npm install nodejs-i18n --save</code></pre>
+<h2 id="tests"><a href="#tests">Tests</a></h2>
+<p>To run the test suite, first install the dependencies, then run <code>test</code>:</p>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># NPM</span>
+npm <span class="hljs-built_in">test</span>
+<span class="hljs-comment"># Or Using Yarn</span>
+yarn <span class="hljs-built_in">test</span></code></pre>
 <h2 id="dependencies"><a href="#dependencies">Dependencies</a></h2>
 <ul>
+<li><a href="https://ghub.io/argv">argv</a>: CLI Argument Parser</li>
+<li><a href="https://ghub.io/esprima">esprima</a>: ECMAScript parsing infrastructure for multipurpose analysis</li>
 <li><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</li>
 <li><a href="https://ghub.io/tempy">tempy</a>: Get a random temporary file or directory path</li>
 </ul>
@@ -174,8 +189,14 @@ command line tools.</p>
 <ul>
 <li><a href="https://ghub.io/mocha">mocha</a>: simple, flexible, fun test framework</li>
 </ul>
+<h2 id="related"><a href="#related">Related</a></h2>
+<ul>
+<li><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</li>
+</ul>
+<h2 id="contributors"><a href="#contributors">Contributors</a></h2>
+<p>Pull requests and stars are always welcome. For bugs and feature requests, please <a href="https://github.com/TiagoDanin/NodeJS-i18n/issues">create an issue</a>. <a href="https://github.com/TiagoDanin/NodeJS-i18n/graphs/contributors">List of all contributors</a>.</p>
 <h2 id="license"><a href="#license">License</a></h2>
-<p>MIT</p>
+<p><a href="LICENSE">MIT</a> © <a href="https://TiagoDanin.github.io">TiagoDanin</a></p>
 
 
 	<hr class="uk-margin-top-remove uk-divider-icon">
