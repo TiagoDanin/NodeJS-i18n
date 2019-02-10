@@ -3,62 +3,102 @@
 const fs = require('fs')
 const path = require('path')
 const readline = require('readline')
-const childProcess = require('child_process')
-const util = require('util')
-const exec = util.promisify(childProcess.exec)
-const tempy = require('tempy')
+const esprima = require('esprima')
+const gettextParser = require('gettext-parser')
+const argv = require('minimist')(process.argv)
 
-const tmpDir = tempy.directory()
 const rl = readline.createInterface({
 	input: process.stdin,
 	output: process.stdout,
 	terminal: false
 })
 
-const tmpFiles = []
+const whiteList = [
+	'String',
+	'Template'
+]
+const prefixs = [
+	'i18n',
+	'_'
+]
+let comments = []
+let n = 0
+let check = false
+
+let po = {
+	charset: 'utf-8',
+	headers: {
+		'content-type': 'text/plain; charset=UTF-8',
+		'content-transfer-encoding': 'UTF-8'
+	},
+	translations: { '': {}}
+}
+
 rl.on('line', (line) => {
 	line = line.replace(/^\.\//g, '')
-	var file = path.resolve(process.cwd() + '/' +  line)
-	var raw = fs.readFileSync(file).toString()
-	var fileOutput = ''
-	for (rawLine of raw.split('\n')) {
-		var n = 0
-		fileOutput += rawLine.toString().replace(/\${([\.\[\]\d\s\w_-]*)}/g, (match, key) => {
-			var output = `{{${n}}}`
-			n++
-			return output
-		}, '') + '\n'
-	}
-	var tmpFile = path.resolve(tmpDir + '/' + line.replace(/\//g, '_'))
-	tmpFiles.push(tmpFile)
-	fs.writeFileSync(tmpFile, fileOutput)
+	let file = path.resolve(process.cwd() + '/' +  line)
+	let code = fs.readFileSync(file).toString()
+
+	let tokens = esprima.tokenize(code, {
+		loc: true,
+		comment: true
+	})
+
+	tokens = tokens.reduce((total, current, index) => {
+		if (argv.all) {
+			check = true
+		}
+		if (current.type == 'LineComment' && current.value.match(/i18n/i)) {
+			comments.push(current)
+		} else if (current.type == 'Identifier' && prefixs.includes(current.value)) {
+			check = true
+		} else if (check && whiteList.includes(current.type)) {
+			if (current.type == whiteList[0]) {
+				total.push(current)
+			} else if (current.value.startsWith('}')) {
+				let old = total[total.length-1]
+				total[total.length-1].value = `${old.value}${n}${current.value}`
+				total[total.length-1].loc.end = current.loc.end
+				n++
+			} else if (current.value.startsWith('`') && !total[total.length-1].value.endsWith('${')) {
+				n = 0
+				total.push(current)
+			}
+			if (
+				total[total.length-1].value.endsWith('"') ||
+				total[total.length-1].value.endsWith('\'') ||
+				total[total.length-1].value.endsWith('`')
+			) {
+				let comment = comments[comments.length-1]
+				if (comment) {
+					let commentLine = comment.loc.start.line
+					let codeLine = total[total.length-1].loc.start.line
+					if (commentLine == codeLine || commentLine+1 == codeLine) {
+						total[total.length-1].comment = comment.value.replace(/[#\s]*i18n[\s:]*/i, '')
+					}
+				}
+				check = false
+			}
+		}
+		return total
+	}, [{value: ''}])
+
+	tokens = tokens.filter(t => t.value != '')
+	tokens.forEach((token) => {
+		token.value = token.value.replace(/['"`](.*)['"`]/, '$1')
+		po.translations[''][token.value] = {
+			msgid: token.value,
+			comments: {
+				reference: `${line}:${token.loc.start.line}:${token.loc.start.column}`
+			},
+			msgstr: []
+		}
+		if (token.comment) {
+			po.translations[''][token.value].comments.extracted = token.comment
+		}
+	})
 })
 
 rl.on('close', async (line) => {
-	var indexFiles = path.resolve(tmpDir + '/indexAllFiles')
-	fs.writeFileSync(indexFiles, `${tmpFiles.join('\n')}`)
-	var keywords = [
-		'_',
-		'i18n',
-		'msgid',
-		'msgstr',
-		'comments',
-		'xgettext'
-	]
-	var args = [
-		'--from-code=utf-8',
-		'--add-comments=i18n',
-		'--force-po',
-		'--keyword=i18n',
-		`--files-from=${indexFiles}`,
-		'--output=/dev/stdout',
-		`--keyword=${keywords.join(' --keyword=')}`,
-		'--language=Perl' //More compatible with JavaScript format. '-'
-	]
-	var { stdout } = await exec(`xgettext ${args.join(' ')}`)
-	stdout = stdout.replace(/perl/g, 'javascript') // :^)
-	stdout = stdout.replace((new RegExp(path.resolve(tmpDir + '/') + '/', 'g')), '')
-	stdout = stdout.replace(/#\.\si18n\s/g, '#. ')
-	stdout = stdout.replace('charset=CHARSET', 'charset=UTF-8')
-	console.log(stdout)
+	console.log(gettextParser.po.compile(po).toString())
 })
