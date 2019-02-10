@@ -9,9 +9,9 @@ class Resources {
 		this.options = {
 			lang: 'en',
 			translations: {},
-			prefix: '{{',
-			suffix: '}}',
-			regex: /{{(\d*)}}/g,
+			prefix: '${',
+			suffix: '}',
+			regex: /\${(\d*)}/g,
 			...options
 		}
 		defaultLang = this.options.lang

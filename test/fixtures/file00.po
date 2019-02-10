@@ -22,5 +22,5 @@ msgid "world"
 msgstr "mundo"
 
 #: test_fixtures_file02.js:2
-msgid "Hello {{0}}"
-msgstr "Olá {{0}}"
+msgid "Hello ${0}"
+msgstr "Olá ${0}"
