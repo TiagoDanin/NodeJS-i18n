@@ -1,4 +1,4 @@
-const gettextParser = require("gettext-parser")
+const gettextParser = require('gettext-parser')
 const fs = require('fs')
 const path = require('path')
 
