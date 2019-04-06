@@ -1,7 +1,7 @@
 {
   "name": "nodejs-i18n",
   "main": "index.js",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Minimalistic internationalization using gettext style for NodeJS",
   "author": {
     "name": "TiagoDanin",
