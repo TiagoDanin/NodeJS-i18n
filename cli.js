@@ -58,7 +58,7 @@ rl.on('line', (line) => {
 				check = current.type
 			}
 			if (!whiteList.includes(current.type)) {
-				if (current.type == 'Punctuator' && current.value == ')') {
+				if (check == whiteList[0] && current.type == 'Punctuator' && current.value == ')') {
 					check = false
 				}
 				return total

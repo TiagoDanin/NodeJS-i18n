@@ -1,0 +1,8 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+
+#: test/fixtures/file06.js:1:1
+msgid "Hello ${0}"
+msgstr ""
