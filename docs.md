@@ -5,9 +5,9 @@ const { Resources, Translation } = require('nodejs-i18n')
 const r = new Resources()
 r.load('pt', 'pt.po')
 
-var user = new Translation('pt')
+const user = new Translation('pt')
 //i18n: My Hello World with NodeJs i18n
-var world = user._`world` // Mundo
+const world = user._`world` // Mundo
 user._`Hello ${world}` // Olá mundo
 ```
 
@@ -44,7 +44,7 @@ String translation.
 
 ### CLI
 
-Create .po files with `nodejs-i18n`. Add in your package.json
+Create en.po files with `nodejs-i18n`. Add in your package.json
 
 ```json
 "scripts": {
@@ -52,4 +52,4 @@ Create .po files with `nodejs-i18n`. Add in your package.json
 }
 ```
 
-and run `$ npm run i18n`
+and run `$ npm run i18n` or `$ yarn i18n`
