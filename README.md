@@ -1,4 +1,5 @@
 # NodeJS i18n
+[![Node](https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n)
 [![Version](https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n)
 [![Downloads](https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n)
 [![Travis](https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&style=flat-square)](https://travis-ci.org/TiagoDanin/NodeJS-i18n)
@@ -97,6 +98,7 @@ yarn test
 - [argv](https://ghub.io/argv): CLI Argument Parser
 - [esprima](https://ghub.io/esprima): ECMAScript parsing infrastructure for multipurpose analysis
 - [gettext-parser](https://ghub.io/gettext-parser): Parse and compile gettext po and mo files to/from json, nothing more, nothing less
+- [minimist](https://ghub.io/minimist): parse argument options
 - [tempy](https://ghub.io/tempy): Get a random temporary file or directory path
 
 ## Dev Dependencies

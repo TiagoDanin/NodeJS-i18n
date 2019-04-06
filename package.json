@@ -41,6 +41,7 @@
     "argv": "0.0.2",
     "esprima": "4.0.1",
     "gettext-parser": "3.1.1",
+    "minimist": "1.2.0",
     "tempy": "0.2.1"
   },
   "devDependencies": {
@@ -56,5 +57,8 @@
   "related": [
     "gettext-parser"
   ],
+  "engines": {
+    "node": ">=8"
+  },
   "documentation": "./docs.md"
 }
