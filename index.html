@@ -111,9 +111,9 @@ yarn global add nodejs-i18n</code></pre>
 <span class="hljs-keyword">const</span> r = <span class="hljs-keyword">new</span> Resources()
 r.load(<span class="hljs-string">'pt'</span>, <span class="hljs-string">'pt.po'</span>)
 
-<span class="hljs-keyword">var</span> user = <span class="hljs-keyword">new</span> Translation(<span class="hljs-string">'pt'</span>)
+<span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> Translation(<span class="hljs-string">'pt'</span>)
 <span class="hljs-comment">//i18n: My Hello World with NodeJs i18n</span>
-<span class="hljs-keyword">var</span> world = user._<span class="hljs-string">`world`</span> <span class="hljs-comment">// Mundo</span>
+<span class="hljs-keyword">const</span> world = user._<span class="hljs-string">`world`</span> <span class="hljs-comment">// Mundo</span>
 user._<span class="hljs-string">`Hello <span class="hljs-subst">${world}</span>`</span> <span class="hljs-comment">// Olá mundo</span></code></pre>
 <h4 id="options--resources"><a href="#options--resources">Options :: Resources({})</a></h4>
 <ul>
@@ -167,11 +167,11 @@ Default value: <code>en</code></p>
 <li><strong>String</strong> - String</li>
 </ul>
 <h3 id="cli"><a href="#cli">CLI</a></h3>
-<p>Create .po files with <code>nodejs-i18n</code>. Add in your package.json</p>
+<p>Create en.po files with <code>nodejs-i18n</code>. Add in your package.json</p>
 <pre><code class="hljs language-json"><span class="hljs-string">"scripts"</span>: {
     <span class="hljs-attr">"i18n"</span>: <span class="hljs-string">"find . | grep .js | sort | nodejs-i18n > en.po"</span>
 }</code></pre>
-<p>and run <code>$ npm run i18n</code></p>
+<p>and run <code>$ npm run i18n</code> or <code>$ yarn i18n</code></p>
 <h2 id="tests"><a href="#tests">Tests</a></h2>
 <p>To run the test suite, first install the dependencies, then run <code>test</code>:</p>
 <pre><code class="hljs language-sh"><span class="hljs-comment"># NPM</span>
