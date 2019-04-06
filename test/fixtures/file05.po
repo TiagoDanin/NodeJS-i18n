@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+
+#: test/fixtures/file05.js:1:0
+#: test/fixtures/file05.js:2:0
+msgid "Hello ${0}"
+msgstr ""
+
+#: test/fixtures/file05.js:5:0
+#. test
+msgid "TITLE: ${0}"
+msgstr ""
+
+#: test/fixtures/file05.js:6:0
+msgid ""
+"\n"
+"NAME\t:\n"
+"\n"
+"Tiago\n"
+"Danin\n"
+msgstr ""

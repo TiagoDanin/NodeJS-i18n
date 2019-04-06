@@ -18,6 +18,16 @@ describe('Cli Test', () => {
 		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')
 		assert.equal(removeDate(stdout), removeDate(fs.readFileSync('test/fixtures/file02.po').toString()))
 	})
+	it('Create file04.po', async () => {"POT-Creation-Date: 2018-10-11 14:01-0300\n"
+		var { stdout } = await exec('find . | grep test/fixtures/file04.js | node cli.js')
+		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')
+		assert.equal(removeDate(stdout), removeDate(fs.readFileSync('test/fixtures/file04.po').toString()))
+	})
+	it('Create file05.po', async () => {"POT-Creation-Date: 2018-10-11 14:01-0300\n"
+		var { stdout } = await exec('find . | grep test/fixtures/file05.js | node cli.js --all')
+		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')
+		assert.equal(removeDate(stdout), removeDate(fs.readFileSync('test/fixtures/file05.po').toString()))
+	})
 	it('All strings', async () => {"POT-Creation-Date: 2018-10-11 14:01-0300\n"
 		var { stdout } = await exec('find . | grep test/fixtures/file03.js | node cli.js --all')
 		var removeDate = (text) => text.replace(/POT-Creation-Date.*"/g, '')

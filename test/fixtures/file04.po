@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+
+#: test/fixtures/file04.js:1:1
+#: test/fixtures/file04.js:2:1
+msgid "Hello ${0}"
+msgstr ""
+
+#: test/fixtures/file04.js:5:24
+#. test
+msgid "YES"
+msgstr ""
+
+#: test/fixtures/file04.js:5:39
+#. test
+msgid "NO"
+msgstr ""
+
+#: test/fixtures/file04.js:6:1
+msgid ""
+"\n"
+"NAME\t:\n"
+"\n"
+"Tiago\n"
+"Danin\n"
+msgstr ""
