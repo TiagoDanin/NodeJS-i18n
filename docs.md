@@ -1,15 +1,4 @@
-### Example
-```javascript
-const { Resources, Translation } = require('nodejs-i18n')
-
-const r = new Resources()
-r.load('pt', 'pt.po')
-
-const user = new Translation('pt')
-//i18n: My Hello World with NodeJs i18n
-const world = user._`world` // Mundo
-user._`Hello ${world}` // Olá mundo
-```
+### Options
 
 #### Options :: Resources({})
 - **lang** - String
@@ -48,7 +37,7 @@ Create en.po files with `nodejs-i18n`. Add in your package.json
 
 ```json
 "scripts": {
-    "i18n": "find . | grep .js | sort | nodejs-i18n > en.po"
+	"i18n": "find . | grep .js | sort | nodejs-i18n > en.po"
 }
 ```
 
