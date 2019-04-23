@@ -2,7 +2,7 @@ const gettextParser = require('gettext-parser')
 const fs = require('fs')
 const path = require('path')
 
-var defaultLang, translations, prefix, suffix, regex
+let defaultLang, translations, prefix, suffix, regex
 
 class Resources {
 	constructor (options) {
@@ -28,8 +28,8 @@ class Resources {
 	}
 
 	load (lang, resourceFile) {
-		var fileRaw = fs.readFileSync(path.resolve(resourceFile))
-		var po = gettextParser.po.parse(fileRaw)
+		const fileRaw = fs.readFileSync(path.resolve(resourceFile))
+		const po = gettextParser.po.parse(fileRaw)
 		translations[lang] = po.translations['']
 		translations[lang][''][''] = {
 			msgid: '',
@@ -55,7 +55,7 @@ class Translation {
 
 	getTranslation (msgid) {
 		msgid = msgid.toString()
-		var translation = translations[this.lang][msgid] || {
+		const translation = translations[this.lang][msgid] || {
 			msgid: msgid,
 			comments: {},
 			msgstr: [msgid]
@@ -67,10 +67,10 @@ class Translation {
 	}
 
 	getMsgid (str, exp) {
-		var n = 0
+		let n = 0
 		if (str.reduce && exp) {
 			return str.reduce((total, current, index) => {
-				var select = `${prefix}${n}${suffix}`
+				let select = `${prefix}${n}${suffix}`
 				n++
 				if (exp[index] === undefined) {
 					select = ''
@@ -82,8 +82,8 @@ class Translation {
 	}
 
 	_ (str, ...exp) {
-		var msgid = this.getMsgid(str, exp)
-		var msgstr = this.getTranslation(msgid).msgstr
+		const msgid = this.getMsgid(str, exp)
+		const msgstr = this.getTranslation(msgid).msgstr
 		if (str.reduce && exp) {
 			return msgstr.toString().replace(regex, (match, key) => {
 				return exp[Number(key)]
@@ -93,17 +93,17 @@ class Translation {
 	}
 
 	msgid (str, ...exp) {
-		var msgid = this.getMsgid(str, exp)
+		const msgid = this.getMsgid(str, exp)
 		return this.getTranslation(msgid)
 	}
 
 	msgstr (str, ...exp) {
-		var msgid = this.getMsgid(str, exp)
+		const msgid = this.getMsgid(str, exp)
 		return this.getTranslation(msgid).msgstr
 	}
 
 	comments (str, ...exp) {
-		var msgid = this.getMsgid(str, exp)
+		const msgid = this.getMsgid(str, exp)
 		return this.getTranslation(msgid).comments
 	}
 }
