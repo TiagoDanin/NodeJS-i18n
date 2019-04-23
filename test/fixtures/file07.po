@@ -1,0 +1,11 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+
+#: test/fixtures/file07.js:1:1
+#. ${0} = "tiago"
+#. ${1} = "danin.name"
+#. ${2} = "test"
+msgid "${0} ${1} ${2}"
+msgstr ""

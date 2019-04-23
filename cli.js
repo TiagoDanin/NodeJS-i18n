@@ -25,6 +25,7 @@ const comments = []
 
 let n = 0
 let check = false
+let identifier = []
 
 const po = {
 	charset: 'utf-8',
@@ -54,6 +55,13 @@ rl.on('line', (line) => {
 		} else if (current.type == 'Identifier' && prefixs.includes(current.value)) {
 			check = true
 		} else if (check) {
+			if (current.type == 'Identifier' && argv.value) {
+				if (identifier[n]) {
+					identifier[n] += `.${current.value}`
+				} else {
+					identifier[n] = `${current.value}`
+				}
+			}
 			if (whiteList.includes(current.type) && typeof check == 'boolean') {
 				check = current.type
 			}
@@ -72,8 +80,14 @@ rl.on('line', (line) => {
 				total[total.length-1].value = `${old.value}${n}${current.value}`
 				total[total.length-1].loc.end = current.loc.end
 				n++
+				if (argv.value) {
+					identifier[n] = false
+				}
 			} else if (current.value.startsWith('`') && !total[total.length-1].value.endsWith('${')) {
 				n = 0
+				if (argv.value) {
+					identifier = [false]
+				}
 				total.push(current)
 			}
 			if (check == current.type && (
@@ -88,6 +102,18 @@ rl.on('line', (line) => {
 					if (commentLine == codeLine || commentLine+1 == codeLine) {
 						total[total.length-1].comment = comment.value.replace(/[#\s]*i18n[\s:]*/i, '')
 					}
+				} else if (argv.value) {
+					total[total.length-1].comment = ''
+				}
+				if (argv.value) {
+					identifier.map((value, index) => {
+						if (value) {
+							if (index > 0) {
+								total[total.length-1].comment += '\n'
+							}
+							total[total.length-1].comment += `\${${index}} = "${value}"`
+						}
+					})
 				}
 				check = false
 			}
