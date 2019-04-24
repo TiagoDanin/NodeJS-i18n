@@ -1,64 +1,72 @@
 {
-  "name": "nodejs-i18n",
-  "main": "index.js",
-  "version": "2.2.1",
-  "description": "Minimalistic internationalization using gettext style for NodeJS",
-  "author": {
-    "name": "TiagoDanin",
-    "email": "TiagoDanin@outlook.com",
-    "url": "https://TiagoDanin.github.io"
-  },
-  "license": "MIT",
-  "keywords": [
-    "i18n",
-    "gettext",
-    "translations",
-    "internationalization"
-  ],
-  "scripts": {
-    "start": "node index.js",
-    "test": "mocha --exit --timeout 10000"
-  },
-  "private": false,
-  "repository": "https://github.com/TiagoDanin/NodeJS-i18n.git",
-  "homepage": "https://TiagoDanin.github.io/NodeJS-i18n",
-  "bugs": "https://github.com/TiagoDanin/NodeJS-i18n/issues",
-  "github": {
-    "name": "NodeJS-i18n",
-    "owner": "TiagoDanin"
-  },
-  "files": [
-    "LICENSE",
-    "README.md",
-    "cli.js",
-    "index.js",
-    "package.json"
-  ],
-  "bin": {
-    "nodejs-i18n": "cli.js"
-  },
-  "dependencies": {
-    "argv": "0.0.2",
-    "esprima": "4.0.1",
-    "gettext-parser": "3.1.1",
-    "minimist": "1.2.0",
-    "tempy": "0.2.1"
-  },
-  "devDependencies": {
-    "mocha": "6.0.2"
-  },
-  "features": [
-    "Gettext Style",
-    "Easy Imprementation",
-    "Create .po via CLI",
-    "Select Lang per User"
-  ],
-  "preferGlobal": true,
-  "related": [
-    "gettext-parser"
-  ],
-  "engines": {
-    "node": ">=8"
-  },
-  "documentation": "./docs.md"
+	"name": "nodejs-i18n",
+	"main": "index.js",
+	"bin": {
+		"nodejs-i18n": "cli.js"
+	},
+	"preferGlobal": true,
+	"version": "2.2.1",
+	"description": "Minimalistic internationalization using gettext style for NodeJS",
+	"author": {
+		"name": "TiagoDanin",
+		"email": "TiagoDanin@outlook.com",
+		"url": "https://TiagoDanin.github.io"
+	},
+	"license": "MIT",
+	"keywords": [
+		"gettext",
+		"i18n",
+		"i18n-js",
+		"i18n-node",
+		"internationalization",
+		"javascript",
+		"nodejs",
+		"translations"
+	],
+	"scripts": {
+		"start": "node index.js",
+		"test": "mocha --exit --timeout 10000"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"private": false,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/TiagoDanin/NodeJS-i18n.git"
+	},
+	"homepage": "https://TiagoDanin.github.io/NodeJS-i18n",
+	"bugs": {
+		"url": "https://github.com/TiagoDanin/NodeJS-i18n/issues"
+	},
+	"github": {
+		"name": "NodeJS-i18n",
+		"owner": "TiagoDanin"
+	},
+	"files": [
+		"LICENSE",
+		"README.md",
+		"cli.js",
+		"index.js",
+		"package.json"
+	],
+	"dependencies": {
+		"argv": "0.0.2",
+		"esprima": "4.0.1",
+		"gettext-parser": "3.1.1",
+		"minimist": "1.2.0",
+		"tempy": "0.2.1"
+	},
+	"devDependencies": {
+		"mocha": "6.0.2"
+	},
+	"features": [
+		"Gettext Style",
+		"Easy Imprementation",
+		"Create .po via CLI",
+		"Select Lang per User"
+	],
+	"related": [
+		"gettext-parser"
+	]
 }
