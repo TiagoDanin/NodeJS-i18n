@@ -5,7 +5,7 @@
 		"nodejs-i18n": "cli.js"
 	},
 	"preferGlobal": true,
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"description": "Minimalistic internationalization using gettext style for NodeJS",
 	"author": {
 		"name": "TiagoDanin",
