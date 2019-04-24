@@ -82,10 +82,7 @@ baseURL: https://tiagodanin.github.io
 
 <div class="uk-container">
 	<h1 id="nodejs-i18n"><a href="#nodejs-i18n">NodeJS i18n</a></h1>
-<p><a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square" alt="Node"></a>
-<a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square" alt="Version"></a>
-<a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square" alt="Downloads"></a>
-<a href="https://travis-ci.org/TiagoDanin/NodeJS-i18n"><img src="https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&#x26;style=flat-square" alt="Travis"></a></p>
+<p><a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square" alt="Node"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square" alt="Version"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square" alt="Downloads"></a> <a href="https://travis-ci.org/TiagoDanin/NodeJS-i18n"><img src="https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&#x26;style=flat-square" alt="Travis"></a> </p>
 <p>Minimalistic internationalization using gettext style for NodeJS</p>
 <h2 id="features"><a href="#features">Features</a></h2>
 <ul>
@@ -95,19 +92,22 @@ baseURL: https://tiagodanin.github.io
 <li>Select Lang per User</li>
 </ul>
 <h2 id="installation"><a href="#installation">Installation</a></h2>
-<p>Module available through the
-<a href="https://www.npmjs.com/">npm registry</a>. It can be installed using the
-<a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm</code></a>
-or
-<a href="https://yarnpkg.com/en/"><code>yarn</code></a>
-command line tools.</p>
+<p>Module available through the <a href="https://www.npmjs.com/">npm registry</a>. It can be installed using the  <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm</code></a> or <a href="https://yarnpkg.com/en/"><code>yarn</code></a> command line tools.</p>
 <pre><code class="hljs language-sh"><span class="hljs-comment"># NPM</span>
 npm install nodejs-i18n --global
 <span class="hljs-comment"># Or Using Yarn</span>
 yarn global add nodejs-i18n</code></pre>
-<h2 id="documentation"><a href="#documentation">Documentation</a></h2>
-<h3 id="example"><a href="#example">Example</a></h3>
-<pre><code class="hljs language-javascript"><span class="hljs-keyword">const</span> { Resources, Translation } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'nodejs-i18n'</span>)
+<h2 id="usage"><a href="#usage">Usage</a></h2>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># Create file</span>
+find . | grep .js | sort | nodejs-i18n > en.po
+
+<span class="hljs-comment"># Create file (all strings) [beta]</span>
+find . | grep .js | sort | nodejs-i18n --all > en.po
+
+<span class="hljs-comment"># Create file (get identifier value) [beta]</span>
+find . | grep .js | sort | nodejs-i18n --value > en.po</code></pre>
+<h2 id="example"><a href="#example">Example</a></h2>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> { Resources, Translation } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'nodejs-i18n'</span>)
 
 <span class="hljs-keyword">const</span> r = <span class="hljs-keyword">new</span> Resources()
 r.load(<span class="hljs-string">'pt'</span>, <span class="hljs-string">'pt.po'</span>)
@@ -116,6 +116,8 @@ r.load(<span class="hljs-string">'pt'</span>, <span class="hljs-string">'pt.po'<
 <span class="hljs-comment">//i18n: My Hello World with NodeJs i18n</span>
 <span class="hljs-keyword">const</span> world = user._<span class="hljs-string">`world`</span> <span class="hljs-comment">// Mundo</span>
 user._<span class="hljs-string">`Hello <span class="hljs-subst">${world}</span>`</span> <span class="hljs-comment">// Olá mundo</span></code></pre>
+<h2 id="documentation"><a href="#documentation">Documentation</a></h2>
+<h3 id="options"><a href="#options">Options</a></h3>
 <h4 id="options--resources"><a href="#options--resources">Options :: Resources({})</a></h4>
 <ul>
 <li>
@@ -170,7 +172,7 @@ Default value: <code>en</code></p>
 <h3 id="cli"><a href="#cli">CLI</a></h3>
 <p>Create en.po files with <code>nodejs-i18n</code>. Add in your package.json</p>
 <pre><code class="hljs language-json"><span class="hljs-string">"scripts"</span>: {
-    <span class="hljs-attr">"i18n"</span>: <span class="hljs-string">"find . | grep .js | sort | nodejs-i18n > en.po"</span>
+	<span class="hljs-attr">"i18n"</span>: <span class="hljs-string">"find . | grep .js | sort | nodejs-i18n > en.po"</span>
 }</code></pre>
 <p>and run <code>$ npm run i18n</code> or <code>$ yarn i18n</code></p>
 <h2 id="tests"><a href="#tests">Tests</a></h2>
