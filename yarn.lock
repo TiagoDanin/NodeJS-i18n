@@ -460,15 +460,15 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
-gettext-parser@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-4.0.0.tgz#0d16f43aa708994411a66c8653785bd7f387f731"
-  integrity sha512-uYT3grq7jtl+cuFlLdJ4ttYiSb48H1XjAlepuJLW8hpugDE/K4cbHS5z7AnEemPNhuavPzbe96YvYgReh2ccTw==
+gettext-parser@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-4.0.1.tgz#72ef1538f5858ae506a1b34db0cc0fe15878d3a7"
+  integrity sha512-ny1f9saN1xnhto5UzDOp7djJy7NbK6ebDAmOFXwp0DDu5KkQ5u3WF6giFU3BXHVqkS+3bxjXS1AmSUbX64fblA==
   dependencies:
     content-type "^1.0.4"
     encoding "^0.1.12"
-    readable-stream "^3.3.0"
-    safe-buffer "^5.1.2"
+    readable-stream "^3.4.0"
+    safe-buffer "^5.2.0"
 
 glob@7.1.3:
   version "7.1.3"
@@ -1102,10 +1102,10 @@ pump@^3.0.0:
     end-of-stream "^1.1.0"
     once "^1.3.1"
 
-readable-stream@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.3.0.tgz#cb8011aad002eb717bf040291feba8569c986fb9"
-  integrity sha512-EsI+s3k3XsW+fU8fQACLN59ky34AZ14LoeVZpYwmZvldCFo0r0gnelwF2TcMjLor/BTL5aDJVBMkss0dthToPw==
+readable-stream@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.4.0.tgz#a51c26754658e0a3c21dbf59163bd45ba6f447fc"
+  integrity sha512-jItXPLmrSR8jmTRmRWJXCnGJsfy85mB3Wd/uINMXA65yrnFo0cPClFIUWzo2najVNSl+mx7/4W8ttlLWJe99pQ==
   dependencies:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
@@ -1156,7 +1156,12 @@ ret@~0.1.10:
   resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
-safe-buffer@^5.1.2, safe-buffer@~5.1.0:
+safe-buffer@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.0.tgz#b74daec49b1148f88c64b68d49b1e815c1f2f519"
+  integrity sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg==
+
+safe-buffer@~5.1.0:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
 
