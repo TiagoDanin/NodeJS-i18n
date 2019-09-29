@@ -53,7 +53,7 @@
 	"dependencies": {
 		"argv": "0.0.2",
 		"esprima": "^4.0.1",
-		"gettext-parser": "^4.0.1",
+		"gettext-parser": "^4.0.2",
 		"minimist": "^1.2.0",
 		"tempy": "0.3.0"
 	},

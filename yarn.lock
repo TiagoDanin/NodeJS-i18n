@@ -460,10 +460,10 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
-gettext-parser@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-4.0.1.tgz#72ef1538f5858ae506a1b34db0cc0fe15878d3a7"
-  integrity sha512-ny1f9saN1xnhto5UzDOp7djJy7NbK6ebDAmOFXwp0DDu5KkQ5u3WF6giFU3BXHVqkS+3bxjXS1AmSUbX64fblA==
+gettext-parser@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/gettext-parser/-/gettext-parser-4.0.2.tgz#1325b50320dccb0afeff305590603f4a88c0d7a6"
+  integrity sha512-JPCBpGzm01te+nTenJwWqKDzixYPY4pInedixpcMl4GPEJeia/cH2TJCh32IggDrrLYrzqA8OitXZLpBdrx4Gg==
   dependencies:
     content-type "^1.0.4"
     encoding "^0.1.12"
