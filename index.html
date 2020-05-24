@@ -82,7 +82,7 @@ baseURL: https://tiagodanin.github.io
 
 <div class="uk-container">
 	<h1 id="nodejs-i18n"><a href="#nodejs-i18n">NodeJS i18n</a></h1>
-<p><a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square" alt="Node"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square" alt="Version"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square" alt="Downloads"></a> <a href="https://travis-ci.org/TiagoDanin/NodeJS-i18n"><img src="https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&#x26;style=flat-square" alt="Travis"></a> </p>
+<p><a href="https://travis-ci.org/TiagoDanin/NodeJS-i18n"><img src="https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&#x26;style=flat-square" alt="Travis"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square" alt="Downloads"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square" alt="Node"></a> <a href="https://npmjs.org/package/nodejs-i18n"><img src="https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square" alt="Version"></a> </p>
 <p>Minimalistic internationalization using gettext style for NodeJS</p>
 <h2 id="features"><a href="#features">Features</a></h2>
 <ul>
@@ -92,11 +92,11 @@ baseURL: https://tiagodanin.github.io
 <li>Select Lang per User</li>
 </ul>
 <h2 id="installation"><a href="#installation">Installation</a></h2>
-<p>Module available through the <a href="https://www.npmjs.com/">npm registry</a>. It can be installed using the  <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm</code></a> or <a href="https://yarnpkg.com/en/"><code>yarn</code></a> command line tools.</p>
-<pre><code class="hljs language-sh"><span class="hljs-comment"># NPM</span>
-npm install nodejs-i18n --global
-<span class="hljs-comment"># Or Using Yarn</span>
-yarn global add nodejs-i18n</code></pre>
+<p>Module available through the <a href="https://www.npmjs.com/">npm registry</a>. It can be installed using the <a href="https://docs.npmjs.com/getting-started/installing-npm-packages-locally"><code>npm</code></a> or <a href="https://yarnpkg.com/en/"><code>yarn</code></a> command line tool.</p>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># Yarn (Recomend)</span>
+yarn global add nodejs-i18n
+<span class="hljs-comment"># NPM </span>
+npm install nodejs-i18n --global</code></pre>
 <h2 id="usage"><a href="#usage">Usage</a></h2>
 <pre><code class="hljs language-sh"><span class="hljs-comment"># Create file</span>
 find . | grep .js | sort | nodejs-i18n > en.po
@@ -109,10 +109,11 @@ find . | grep .js | sort | nodejs-i18n --value > en.po</code></pre>
 <h2 id="example"><a href="#example">Example</a></h2>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> { Resources, Translation } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'nodejs-i18n'</span>)
 
-<span class="hljs-keyword">const</span> r = <span class="hljs-keyword">new</span> Resources()
-r.load(<span class="hljs-string">'pt'</span>, <span class="hljs-string">'pt.po'</span>)
+<span class="hljs-keyword">const</span> resources = <span class="hljs-keyword">new</span> Resources()
+resources.load(<span class="hljs-string">'pt'</span>, <span class="hljs-string">'pt.po'</span>)
 
 <span class="hljs-keyword">const</span> user = <span class="hljs-keyword">new</span> Translation(<span class="hljs-string">'pt'</span>)
+
 <span class="hljs-comment">//i18n: My Hello World with NodeJs i18n</span>
 <span class="hljs-keyword">const</span> world = user._<span class="hljs-string">`world`</span> <span class="hljs-comment">// Mundo</span>
 user._<span class="hljs-string">`Hello <span class="hljs-subst">${world}</span>`</span> <span class="hljs-comment">// Olá mundo</span></code></pre>
@@ -177,26 +178,52 @@ Default value: <code>en</code></p>
 <p>and run <code>$ npm run i18n</code> or <code>$ yarn i18n</code></p>
 <h2 id="tests"><a href="#tests">Tests</a></h2>
 <p>To run the test suite, first install the dependencies, then run <code>test</code>:</p>
-<pre><code class="hljs language-sh"><span class="hljs-comment"># NPM</span>
-npm <span class="hljs-built_in">test</span>
-<span class="hljs-comment"># Or Using Yarn</span>
+<pre><code class="hljs language-sh"><span class="hljs-comment"># Using Yarn</span>
 yarn <span class="hljs-built_in">test</span></code></pre>
 <h2 id="dependencies"><a href="#dependencies">Dependencies</a></h2>
-<ul>
-<li><a href="https://ghub.io/argv">argv</a>: CLI Argument Parser</li>
-<li><a href="https://ghub.io/esprima">esprima</a>: ECMAScript parsing infrastructure for multipurpose analysis</li>
-<li><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</li>
-<li><a href="https://ghub.io/minimist">minimist</a>: parse argument options</li>
-<li><a href="https://ghub.io/tempy">tempy</a>: Get a random temporary file or directory path</li>
-</ul>
-<h2 id="dev-dependencies"><a href="#dev-dependencies">Dev Dependencies</a></h2>
-<ul>
-<li><a href="https://ghub.io/mocha">mocha</a>: simple, flexible, fun test framework</li>
-</ul>
+<details>
+	<summary><a href="https://ghub.io/argv">argv</a>: CLI Argument Parser</summary>
+	<b>Author</b>: Corey Hart</br>
+	<b>License</b>: </br>
+	<b>Version</b>: 0.0.2
+</details>
+<details>
+	<summary><a href="https://ghub.io/esprima">esprima</a>: ECMAScript parsing infrastructure for multipurpose analysis</summary>
+	<b>Author</b>: Ariya Hidayat</br>
+	<b>License</b>: BSD-2-Clause</br>
+	<b>Version</b>: ^4.0.1
+</details>
+<details>
+	<summary><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</summary>
+	<b>Author</b>: Andris Reinman</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: ^4.0.3
+</details>
+<details>
+	<summary><a href="https://ghub.io/minimist">minimist</a>: parse argument options</summary>
+	<b>Author</b>: James Halliday</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: ^1.2.5
+</details>
+<details>
+	<summary><a href="https://ghub.io/tempy">tempy</a>: Get a random temporary file or directory path</summary>
+	<b>Author</b>: Sindre Sorhus</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: 0.5.0
+</details>
+<h2 id="dev-dependency"><a href="#dev-dependency">Dev Dependency</a></h2>
+<details>
+	<summary><a href="https://ghub.io/mocha">mocha</a>: simple, flexible, fun test framework</summary>
+	<b>Author</b>: TJ Holowaychuk</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: 7.2.0
+</details>
 <h2 id="related"><a href="#related">Related</a></h2>
-<ul>
-<li><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</li>
-</ul>
+<details>
+	<summary><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</summary>
+	<b>Author</b>: Andris Reinman</br>
+	<b>License</b>: MIT
+</details>
 <h2 id="contributors"><a href="#contributors">Contributors</a></h2>
 <p>Pull requests and stars are always welcome. For bugs and feature requests, please <a href="https://github.com/TiagoDanin/NodeJS-i18n/issues">create an issue</a>. <a href="https://github.com/TiagoDanin/NodeJS-i18n/graphs/contributors">List of all contributors</a>.</p>
 <h2 id="license"><a href="#license">License</a></h2>
