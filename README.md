@@ -1,6 +1,6 @@
 # NodeJS i18n
 
-[![Node](https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n) [![Version](https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n) [![Downloads](https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n) [![Travis](https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&style=flat-square)](https://travis-ci.org/TiagoDanin/NodeJS-i18n) 
+[![Travis](https://img.shields.io/travis/TiagoDanin/NodeJS-i18n.svg?branch=master&style=flat-square)](https://travis-ci.org/TiagoDanin/NodeJS-i18n) [![Downloads](https://img.shields.io/npm/dt/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n) [![Node](https://img.shields.io/node/v/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n) [![Version](https://img.shields.io/npm/v/nodejs-i18n.svg?style=flat-square)](https://npmjs.org/package/nodejs-i18n) 
 
 Minimalistic internationalization using gettext style for NodeJS
 
@@ -13,13 +13,13 @@ Minimalistic internationalization using gettext style for NodeJS
 
 ## Installation
 
-Module available through the [npm registry](https://www.npmjs.com/). It can be installed using the  [`npm`](https://docs.npmjs.com/getting-started/installing-npm-packages-locally) or [`yarn`](https://yarnpkg.com/en/) command line tools.
+Module available through the [npm registry](https://www.npmjs.com/). It can be installed using the [`npm`](https://docs.npmjs.com/getting-started/installing-npm-packages-locally) or [`yarn`](https://yarnpkg.com/en/) command line tool.
 
 ```sh
-# NPM
-npm install nodejs-i18n --global
-# Or Using Yarn
+# Yarn (Recomend)
 yarn global add nodejs-i18n
+# NPM 
+npm install nodejs-i18n --global
 ```
 
 ## Usage
@@ -40,10 +40,11 @@ find . | grep .js | sort | nodejs-i18n --value > en.po
 ```js
 const { Resources, Translation } = require('nodejs-i18n')
 
-const r = new Resources()
-r.load('pt', 'pt.po')
+const resources = new Resources()
+resources.load('pt', 'pt.po')
 
 const user = new Translation('pt')
+
 //i18n: My Hello World with NodeJs i18n
 const world = user._`world` // Mundo
 user._`Hello ${world}` // Olá mundo
@@ -101,27 +102,59 @@ and run `$ npm run i18n` or `$ yarn i18n`
 To run the test suite, first install the dependencies, then run `test`:
 
 ```sh
-# NPM
-npm test
-# Or Using Yarn
+# Using Yarn
 yarn test
 ```
 
 ## Dependencies
 
-- [argv](https://ghub.io/argv): CLI Argument Parser
-- [esprima](https://ghub.io/esprima): ECMAScript parsing infrastructure for multipurpose analysis
-- [gettext-parser](https://ghub.io/gettext-parser): Parse and compile gettext po and mo files to/from json, nothing more, nothing less
-- [minimist](https://ghub.io/minimist): parse argument options
-- [tempy](https://ghub.io/tempy): Get a random temporary file or directory path
+<details>
+	<summary><a href="https://ghub.io/argv">argv</a>: CLI Argument Parser</summary>
+	<b>Author</b>: Corey Hart</br>
+	<b>License</b>: </br>
+	<b>Version</b>: 0.0.2
+</details>
+<details>
+	<summary><a href="https://ghub.io/esprima">esprima</a>: ECMAScript parsing infrastructure for multipurpose analysis</summary>
+	<b>Author</b>: Ariya Hidayat</br>
+	<b>License</b>: BSD-2-Clause</br>
+	<b>Version</b>: ^4.0.1
+</details>
+<details>
+	<summary><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</summary>
+	<b>Author</b>: Andris Reinman</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: ^4.0.3
+</details>
+<details>
+	<summary><a href="https://ghub.io/minimist">minimist</a>: parse argument options</summary>
+	<b>Author</b>: James Halliday</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: ^1.2.5
+</details>
+<details>
+	<summary><a href="https://ghub.io/tempy">tempy</a>: Get a random temporary file or directory path</summary>
+	<b>Author</b>: Sindre Sorhus</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: 0.5.0
+</details>
 
-## Dev Dependencies
+## Dev Dependency
 
-- [mocha](https://ghub.io/mocha): simple, flexible, fun test framework
+<details>
+	<summary><a href="https://ghub.io/mocha">mocha</a>: simple, flexible, fun test framework</summary>
+	<b>Author</b>: TJ Holowaychuk</br>
+	<b>License</b>: MIT</br>
+	<b>Version</b>: 7.2.0
+</details>
 
 ## Related
 
-- [gettext-parser](https://ghub.io/gettext-parser): Parse and compile gettext po and mo files to/from json, nothing more, nothing less
+<details>
+	<summary><a href="https://ghub.io/gettext-parser">gettext-parser</a>: Parse and compile gettext po and mo files to/from json, nothing more, nothing less</summary>
+	<b>Author</b>: Andris Reinman</br>
+	<b>License</b>: MIT
+</details>
 
 ## Contributors
 
