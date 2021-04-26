@@ -28,7 +28,7 @@
 		"test": "mocha --exit --timeout 10000"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=v14.16.1"
 	},
 	"private": false,
 	"repository": {
