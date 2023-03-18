@@ -51,7 +51,7 @@
 		"package.json"
 	],
 	"dependencies": {
-		"argv": "0.0.2",
+		"argv": "0.0.3",
 		"esprima": "^4.0.1",
 		"gettext-parser": "^4.0.4",
 		"minimist": "^1.2.5",
