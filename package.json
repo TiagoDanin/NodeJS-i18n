@@ -58,7 +58,7 @@
 		"tempy": "1.0.1"
 	},
 	"devDependencies": {
-		"mocha": "8.4.0"
+		"mocha": "11.8.0"
 	},
 	"features": [
 		"Gettext Style",
